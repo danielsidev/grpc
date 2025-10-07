@@ -1,0 +1,26 @@
+// simple.proto
+syntax = "proto3";
+
+package simple;
+
+option go_package = "./simple";
+
+// Mensagem de solicitação (Payload de ENTRADA)
+message OrderRequest {
+  string product_id = 1;
+  int32 quantity = 2;
+  double price = 3;
+}
+
+// Mensagem de resposta (Payload de SAÍDA)
+message ReceiptResponse {
+  string order_id = 1;
+  double total_amount = 2;
+  string status = 3;
+}
+
+// O serviço que define a comunicação
+service OrderService {
+  // ProcessOrder é um RPC Unary (solicitação/resposta simples)
+  rpc ProcessOrder(OrderRequest) returns (ReceiptResponse);
+}

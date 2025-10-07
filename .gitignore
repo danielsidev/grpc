@@ -1,0 +1,4 @@
+*.env
+node_service/node_modules
+*package-lock.json
+*/venv_grpc
